@@ -2,26 +2,26 @@
 
 A complete guide to unlocking the bootloader, rooting, and modifying the Doogee Note 58. 
 
-> ⚠️ **BEFORE YOU START:** MAKE A BACKUP. Unlocking the bootloader will completely wipe your device. 
-> **DISCLAIMER:** I am not responsible for bricked phones. You are choosing to do this. My sanity was destroyed during this process, so yours might be too. May God have mercy.
+> **BEFORE YOU START:** MAKE A BACKUP. Unlocking the bootloader will completely wipe your device. 
+> **DISCLAIMER:** I AM NOT RESPONSABLE FOR THE DAMAGE YOUR GONNA CAUSE IT WAS YOUR DECISION TO FOLOW THIS GUIDE. My sanity was destroyed during this process, so maybe yours will be too. May god help you 
 
 ---
 
-## 📋 Requirements
+## Requirements
 
 *   A Windows PC (Highly recommended. Linux works via Wine, but it constantly throws `LIBUSB_TIMEOUT` or `connection closed` errors. Windows is just easier for this).
 *   A USB data cable (You cannot do this wirelessly).
-*   The stock firmware `.pac` file (Extracted so you have `boot-gki.img` and `u-boot-spl-16k-ufs-sign.bin`).
-*   **Patience.**
+*   The stock firmware `.pac` file (Extracted so you have `boot-gki.img` and `u-boot-spl-16k-ufs-sign.bin`) I'm gonna (or in the future was) to put the .oac firmware file on the release file.
+*   **Patience.**: you need to have this (you can be angry when the phone don't want to do this just like I did)
 
-### 🛠️ Files You Need to Download:
+### Files You Need to Download:
 1.  **The Exploit Tool**: Download the compiled `spd_dump` for Windows from [TomKing062's GitHub](https://github.com/TomKing062/CVE-2022-38694_unlock_bootloader).
 2.  **The Unlock Payload**: Download `ums9230_universal_unlock_UFS.zip` from the Releases page of that GitHub repo. *(Your phone uses uMCP storage, which uses the UFS flashing style).*
 3.  **Magisk App**: To root the phone after unlocking.
 
 ---
 
-## 🔓 Part 1: Unlocking the Bootloader
+##  Part 1: Unlocking the Bootloader
 
 The Doogee Note 58 uses a Unisoc T7250 chip. There is no "guided unlock" for this phone. We have to use the BootROM exploit **CVE-2022-38694**.
 
@@ -40,7 +40,7 @@ The Doogee Note 58 uses a Unisoc T7250 chip. There is no "guided unlock" for thi
 7.  **Plug in your phone while holding `Volume Down + Power`.** The screen will stay black. This is BROM mode.
 8.  Let the script execute. It will back up your partitions and write the patched bootloader.
 
-### ⚠️ The Black Screen of Death
+###  The Black Screen of Death
 When the script finishes, your phone will reboot, but the screen will be **completely black**. **This is normal.** The patched bootloader doesn't initialize the display.
 
 **How to fix the black screen (Flash stock bootloader):**
@@ -52,13 +52,13 @@ When the script finishes, your phone will reboot, but the screen will be **compl
     ```
 4.  The phone will boot into Android. Go to `Settings > Developer Options > OEM Unlocking`. It should say **"Bootloader is already unlocked."**
 
-# 🎉 CONGRATULATIONS, YOU UNLOCKED YOUR BOOTLOADER 🎉
+#  CONGRATULATIONS, YOU UNLOCKED YOUR BOOTLOADER 
 
 ---
 
-## 🛡️ Part 2: Rooting with Magisk
+##  Part 2: Rooting with Magisk
 
-Because the Doogee Note 58 has a Unisoc kernel, **KernelSU will not work here**. You must use Magisk.
+The dogee may have a non gki kernel so it's adviced to use magisk 
 
 1.  Extract `boot-gki.img` from your stock firmware.
 2.  Copy `boot-gki.img` to your phone.
@@ -69,11 +69,11 @@ Because the Doogee Note 58 has a Unisoc kernel, **KernelSU will not work here**.
     ```cmd
     spd_dump --wait 300 exec_addr 0x65015f08 fdl fdl1-dl.bin 0x65000800 fdl fdl2-dl.bin 0x9efffe00 exec w boot_a magisk_patched-xxxxx.img w boot_b magisk_patched-xxxxx.img reset
     ```
-7.  Reboot. Open Magisk, and you should have full Root access! 🎉
+7.  Reboot. Open Magisk,and you will have root (maybe)
 
 ---
 
-## 🎨 Part 3: Customizing the UI (Optional)
+##  Part 3: Customizing the UI (Optional)
 
 If you want the iOS / Nothing OS look (custom clock, quick settings):
 Since this is a Clean AOSP Android 15 build, do **NOT** use Vector or standard LSPosed. They will crash SystemUI with a `NoSuchFieldError`.
@@ -84,8 +84,8 @@ Since this is a Clean AOSP Android 15 build, do **NOT** use Vector or standard L
 
 ---
 
-## 💬 Final Words
+##  Final Words
 This method was tested using Windows. If you use Linux, you will likely get `LIBUSB_TIMEOUT`, `connection closed`, or `ver expected` errors because the Linux build lacks the `exec_addr` exploit. 
 
 Good luck, and may God be with you. 
-Also this guide was made by a 14 year old be grateful 
+Also this guide was made by a 14 year old be grateful . My sanity is cooked 
