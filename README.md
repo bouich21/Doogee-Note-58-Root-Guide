@@ -109,4 +109,4 @@ If you want the iOS / Nothing OS look (custom clock, quick settings): this is a 
 
 This guide was tested on **Windows only**. On Linux you will likely get `LIBUSB_TIMEOUT`, `connection closed`, or `ver expected` errors, and the Linux build may lack the `exec_addr` support this method needs, so I don't recommend it.
 
-Good luck, and may God be with you.be grateful I'm 14
+Good luck, and may God be with you. be grateful I'm 14
